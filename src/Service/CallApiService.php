@@ -11,12 +11,27 @@ class CallApiService
         $this->client = $client;
     }
 
-    public function getFranceData(): array
+    private function getApi(string $string) 
     {
         $response = $this->client->request(
             "GET",
-            "https://coronavirusapifr.herokuapp.com/data/live/france"
+            "https://coronavirusapifr.herokuapp.com/data/live/" . $string
         );
         return $response->toArray();
+    }
+
+    public function getFranceData(): array
+    {
+        return $this->getApi("france");
+    }
+
+    public function getAllDepartments(): array
+    {
+        return $this->getApi("departements");
+    }
+
+    public function getDepartment($department): array
+    {
+        return $this->getApi("departement/" . $department);
     }
 }
