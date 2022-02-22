@@ -17,21 +17,28 @@
             <div class="col">
                 <div class="card mb-4 shadow-sm mt-4">
                     <div class="card-header">
-                        <h4 class="my-0 fw-normal">Nombre d’hospitalisations</h4>
+                        <h2 class="my-0 fw-normal">Nombre d’hospitalisations</h2>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{ department.0.hosp }}</h1>
+                        <h3 class="card-title pricing-card-title">{{ department.0.hosp }}</h3>
                     </div>
                 </div>
             </div>
             <div class="col">
                 <div class="card mb-4 shadow-sm mt-4">
                     <div class="card-header">
-                        <h4 class="my-0 fw-normal">Nombre de personnes réa</h4>
+                        <h2 class="my-0 fw-normal">Personnes en réanimation</h2>
                     </div>
                     <div class="card-body">
-                        <h1 class="card-title pricing-card-title">{{ department.0.rea }}</h1>
+                        <h3 class="card-title pricing-card-title">{{ department.0.rea }}</h3>
                     </div>
+                </div>
+            </div>
+
+            <h3 class="display-4 mt-4">Graphique de ces 7 derniers jours</h3>
+            <div class="card mb-5 shadow-lg mt-1">
+                <div class="card-body">
+                    {{ render_chart(chart) }}
                 </div>
             </div>
         </div>

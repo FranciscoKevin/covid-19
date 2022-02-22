@@ -15,23 +15,28 @@ class CallApiService
     {
         $response = $this->client->request(
             "GET",
-            "https://coronavirusapifr.herokuapp.com/data/live/" . $string
+            "https://coronavirusapifr.herokuapp.com/data/" . $string
         );
         return $response->toArray();
     }
 
     public function getFranceData(): array
     {
-        return $this->getApi("france");
+        return $this->getApi("live/france");
     }
 
     public function getAllDepartments(): array
     {
-        return $this->getApi("departements");
+        return $this->getApi("live/departements");
     }
 
-    public function getDepartment($department): array
+    public function getDepartment(string $department): array
     {
-        return $this->getApi("departement/" . $department);
+        return $this->getApi("live/departement/" . $department);
+    }
+
+    public function getAllDepartmentByDate(string $date): array
+    {
+        return $this->getApi("departements-by-date/" . $date);
     }
 }
