@@ -3,12 +3,15 @@
 namespace App\Service;
 
 use Symfony\Contracts\HttpClient\HttpClientInterface;
+use Symfony\Contracts\Cache\CacheInterface;
+use Symfony\Contracts\Cache\ItemInterface;
 
 class CallApiService
 {
-    public function __construct(private HttpClientInterface $client)
+    public function __construct(private HttpClientInterface $client, private CacheInterface $cache)
     {
         $this->client = $client;
+        $this->cache = $cache;
     }
 
     private function getApi(string $string) 
@@ -37,6 +40,11 @@ class CallApiService
 
     public function getAllDepartmentByDate(string $date): array
     {
-        return $this->getApi("departements-by-date/" . $date);
+        $departmentByDate = $this->cache->get("details_department_".$date, function(ItemInterface $item) use($date){
+            $item->expiresAfter(3600);
+            return $this->getApi("departements-by-date/" . $date);
+        });
+
+        return $departmentByDate;
     }
 }
