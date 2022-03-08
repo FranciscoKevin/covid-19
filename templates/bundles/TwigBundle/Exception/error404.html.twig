@@ -1,0 +1,15 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Page erreur 404{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="px-4 py-4 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="title-error"><strong>404</strong></h1>
+            <h2>Oops! Page indisponible</h2>
+            <br/>
+            <a class="btn btn-secondary" href="{{ path('home') }}">Retour accueil</a>
+        </div>
+    </div>
+{% endblock %}

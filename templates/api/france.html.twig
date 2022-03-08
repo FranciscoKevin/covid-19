@@ -1,11 +1,11 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}{{ parent() }} - Les Derniers Chiffres {% endblock %}
+{% block title %}{{ parent() }} - Les Derniers Chiffres en France{% endblock %}
 
 {% block body %}
     <div class="album py-5" id="france">
 		<div class="container">
-            <h1 class="mb-5">Les chiffres du COVID-19 en France</h1>
+            <h1 class="mb-5">Les derniers chiffres du Covid-19</h1>
 
 			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
 
@@ -15,7 +15,7 @@
 							<h5 class="card-title">Nombre d’hospitalisations</h5>
 							<p class="card-text">Nombre de personnes actuellement hospitalisée.</p>
 						</div>
-                        <h3 class="card-footer bg-warning text-dark mx-2 rounded-pill">{{ data.0.hosp }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal bg-dark text-white">{{ data.0.hosp }}</h3>
 					</div>
 				</div>
 
@@ -25,7 +25,7 @@
 							<h5 class="card-title">Nombre de réanimation</h5>
 							<p class="card-text">Nombre de personnes actuellement en réanimation.</p>
 						</div>
-                        <h3 class="card-footer bg-danger text-white mx-2 rounded-pill">{{ data.0.rea }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal bg-warning text-white">{{ data.0.rea }}</h3>
 					</div>
 				</div>
 
@@ -35,7 +35,7 @@
 							<h5 class="card-title">Nombre total de décès</h5>
 							<p class="card-text">Nombre de personnes décédés depuis le début de la pandémie.</p>
 						</div>
-                        <h3 class="card-footer bg-dark text-light mx-2 rounded-pill">{{ data.0.dc_tot }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal bg-danger text-white">{{ data.0.dc_tot }}</h3>
 					</div>
 				</div>
 
@@ -45,7 +45,7 @@
 							<h5 class="card-title">Nombre totale de guéris</h5>
 							<p class="card-text">Nombre de personnes guéris depuis le début de la pandémie.</p>
 						</div>
-                        <h3 class="card-footer bg-success text-dark mx-2 rounded-pill">{{ data.0.rad }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal bg-success text-white">{{ data.0.rad }}</h3>
 					</div>
 				</div>
 
@@ -55,7 +55,7 @@
 							<h5 class="card-title">Nombre de cas confirmés</h5>
 							<p class="card-text">Nombre de cas confirmés depuis le début de la pandémie.</p>
 						</div>
-                        <h3 class="card-footer bg-info text-dark mx-2 rounded-pill">{{ data.0.conf_j1 }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal bg-primary text-white">{{ data.0.conf_j1 }}</h3>
 					</div>
 				</div>
 
@@ -68,7 +68,7 @@
                                 <br>Date des dernières données :
                             </p>
 						</div>
-                        <h3 class="card-footer bg-secondary text-grey mx-2 rounded-pill">{{ data.0.date }}</h3>
+                        <h3 class="card-footer text-center my-0 fw-normal text-black">{{ data.0.date }}</h3>
 					</div>
 				</div>
 

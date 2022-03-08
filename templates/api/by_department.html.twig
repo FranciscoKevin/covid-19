@@ -5,14 +5,9 @@
 {% block body %}
     <div class="container">
         <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
-            <h1 class="display-4">Les chiffres du COVID-19 -
-                {{ department.0.lib_dep}}</h1>
-            <p class="lead">Source :
-                ministère-santé</p>
-            <p class="lead">Date d'actualisation :
-                {{ department.0.date }}</p>
-        </div>
-
+        <h1 class="display-4">Département - {{ department.0.lib_dep}}</h1>
+        <h2>Les chiffres du {{ department.0.date|date("d/m/Y") }}</h2>
+        
         <div class="row text-center">
             <div class="col">
                 <div class="card mb-4 shadow-sm mt-4">
@@ -34,13 +29,12 @@
                     </div>
                 </div>
             </div>
-
-            <h3 class="display-4 mt-4">Graphique de ces 7 derniers jours</h3>
-            <div class="card mb-5 shadow-lg mt-1">
-                <div class="card-body">
-                    {{ render_chart(chart) }}
-                </div>
-            </div>
         </div>
+    </div>
+
+    <h3 class="display-4 mt-4 text-center">Graphique de ces 7 derniers jours</h3>
+            
+    <div class="container-chart mt-3 my-0 fw-normal">
+        {{ render_chart(chart) }}
     </div>
 {% endblock %}

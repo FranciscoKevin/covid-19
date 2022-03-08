@@ -1,0 +1,18 @@
+{# templates/bundles/TwigBundle/Exception/error500.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Page erreur 500{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="px-4 py-4 pt-md-5 pb-md-4 mx-auto text-center">
+            <h1 class="title-error"><stong>500</strong></h1>
+            <h2>Erreur interne du serveur</h2>
+            <p>
+               Oops, quelque chose ne va pas.<br/>
+               Essayez de rafraîchir la page ou patienter quelques minutes.
+            </p>
+            <a class="btn btn-secondary" href="{{ path('home') }}">Retour accueil</a>
+        </div>
+    </div>
+{% endblock %}

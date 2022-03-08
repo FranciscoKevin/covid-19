@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Accueil{% endblock %}
+
+{% block body %}
+    <div class="container py-4">
+        <header class="pb-3 mb-4 border-bottom">
+            <h1 class="d-flex align-items-center text-dark">
+                <img class="ml-2" src="/images/covid.png" alt="Logo covid-19" />
+                <span class="fs-3 p-1">Covid-19 France</span>
+            </h1>
+        </header>
+
+        <div class="p-5 mb-4 bg-light rounded-3">
+            <div class="container-fluid py-5">
+                <h2 class="display-5 fw-bold">Bienvenue sur Covid-19 France</h2>
+                <p class="col-md-8 fs-4">Ce site permet d'afficher les derniers résultats de l'épidémie du Covid. Les données sur le Coronavirus en France sont actualisées chaque jours pour chaque départements et globalement pour la France.</p>
+                <a href="{{ path("france") }}" class="btn btn-primary btn-lg">En savoir plus</a>
+            </div>
+        </div>
+
+        <div class="row align-items-md-stretch">
+            <div class="col-md-6">
+                <div class="h-100 p-5 text-white bg-dark rounded-3">
+                    <h2>La Santé Publique France</h2>
+                    <p>Le jeu de données initiales provient de Santé Publique France. Si vous voulez en savoir plus sur l'épidémie de Covid-19 dans le monde cliquer sur lien ci-dessous.</p>
+                    <a href="https://www.santepubliquefrance.fr/dossiers/coronavirus-covid-19/coronavirus-chiffres-cles-et-evolution-de-la-covid-19-en-france-et-dans-le-monde">
+                        <img src="/images/sante-publique-france-logo.png" height="70px" alt="Logo santé publique France" />
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <div class="h-100 p-5 bg-light border rounded-3">
+                <h2>L'API Covid-19</h2>
+                <p>J'ai utilisé une API Covid qui récolte des données qui proviennent de Santé Publique France. <br/>Les données sur le Coronavirus en France sont actualisées chaque jours. Si vous voulez en savoir sur l'API, je vous invite à la découvrir sur Github.</p>
+                <a href="https://github.com/florianzemma/CoronavirusAPI-France" class="btn btn-outline-secondary">Découvrir</a>
+                
+            </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
