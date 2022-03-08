@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - Tous les departements {% endblock %}
+
+{% block body %}
+    <div class="album py-5" id="department">
+		<div class="container">
+            <h1 class="mb-5">Les chiffres du Covid-19 par département</h1>
+			<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+				{% for department in departments %}
+					<div class="col">
+						<div class="card shadow h-100 m-2">
+							<div class="card-body">
+								<h5 class="card-title">{{ department.lib_dep }}</h5>
+								<p class="card-text">Actuellement hospitalisée <span class="badge bg-dark">{{ department.hosp }}</span></p>
+								<p class="card-text">Actuellement en réanimation <span class="badge bg-warning">{{ department.rea }}</span></p>
+								<a href="{{ path('department', {'department': department.lib_dep }) }}" class="btn btn-secondary" role="button" aria-pressed="true">En savoir plus</a>
+							</div>
+						</div>
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endblock %}

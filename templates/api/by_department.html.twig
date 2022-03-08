@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ parent() }} - {{ department.0.lib_dep }}{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Département - {{ department.0.lib_dep}}</h1>
+        <h2>Les chiffres du {{ department.0.date|date("d/m/Y") }}</h2>
+        
+        <div class="row text-center">
+            <div class="col">
+                <div class="card mb-4 shadow-sm mt-4">
+                    <div class="card-header">
+                        <h2 class="my-0 fw-normal">Nombre d’hospitalisations</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title pricing-card-title">{{ department.0.hosp }}</h3>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card mb-4 shadow-sm mt-4">
+                    <div class="card-header">
+                        <h2 class="my-0 fw-normal">Personnes en réanimation</h2>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title pricing-card-title">{{ department.0.rea }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <h3 class="display-4 mt-4 text-center">Graphique de ces 7 derniers jours</h3>
+            
+    <div class="container-chart mt-3 my-0 fw-normal">
+        {{ render_chart(chart) }}
+    </div>
+{% endblock %}
