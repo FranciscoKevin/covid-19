@@ -17,7 +17,7 @@ class ApiController extends AbstractController
         $this->callApiService = $callApiService;
     }
 
-    #[Route('/', name: 'api')]
+    #[Route('/toute-la-france', name: 'france')]
     public function showAllFranceData(): Response
     {
         return $this->render('api/france.html.twig', [
@@ -25,7 +25,7 @@ class ApiController extends AbstractController
         ]);
     }
 
-    #[Route('/tous-les-departements', name: 'departments')]
+    #[Route('/france/tous-les-departements', name: 'departments')]
     public function showAllDepartments(): Response
     {
         return $this->render('api/all_departments.html.twig', [
@@ -33,7 +33,7 @@ class ApiController extends AbstractController
         ]);
     }
 
-    #[Route('/departement/{department}', name: 'department')]
+    #[Route('/france/departement/{department}', name: 'department')]
     public function showByDepartment(string $department, ChartBuilderInterface $chartBuilder): Response
     {
         //Array for chartBuilder
